@@ -29,11 +29,28 @@ import requests
 from datetime import datetime
 global roomretst
 import random
-code = """
-CmltcG9ydCBiYXNlNjQKCmNvZGUgPSAiIiIKQ21sdGNHOXlkQ0JpWVhObE5qUUtDbU52WkdVZ1BTQWlJaUlLUTIxc2RHTkhPWGxrUTBKcFdWaE9iRTVxVVV0RGJVNTJXa2RWWjFCVFFXbEphVWxMVVRJeGMyUkhUa2hQV0d4clVUQktjRmRXYUU5aVJUVnhWVlYwUkdKVk5USlhhMlJXV2pGQ1ZGRlhiRXBoVld4TVZWUkplR015VWtoVWEyaFFWMGQ0Y2xWVVFrdE9WbVJ6WVVWa1RsWnVRbHBXUjNCRFlXMVJlVTlWZUZaV2JIQkVWVEo0Ym1WR1duTlViRlpTVFVWVk1WVXhWazlUTWtsNVZXdHNWbUp0VW5GYVZ6QTFUV3hTUlZOck9XdGlTRUpKVm14b1UxZHRTbFZoTTJSVlVtMW9URmxXV25abGJHOTZWbTEwYVZac2J6RldNVkpMVmpKTmQyVklVbE5pYlZKeFZWaHdjMk5XYkZaYVJtUm9ZbFZaTVZSV1pIZGhWVEZ6VTI1T1ZGWXlVakpWZWtaM1UwWmFkRTFWY0ZOTmJtY3lWakJTUzFReVVuTmpSV2hYWWxad2NsbHNWbUZsYkd4WFdrWkthVTFYZERWVU1XUXdXVlpWZVdONlNsSk5iWGhEVjJwQ2MxSkdSbkZSYlhCcFlsaE5lVlZVU25OUmJHOTNZa1ZTVWxZeVVrdFZWRUpIWW14cmVVMVdaR3hpVlRWSlZERm9WMkZyTVhOV2JUVldVbXMxUkZwV1duZFhWa3B4VW0xR1dGSlVVak5YVkU1eVRWZEtjMk5HYkZaV2VteFRWbTEwUzFNeFpFVlNiR1JXVFZaS1JWcEVTbXRoYkVsM1YycFdXRlp0VGpSYVYzaERWMWROZVU1V2NFNWhiWGg1VmpKNFQyRnJOWEppUldoVllteHdhRlZxUmxwT1ZrMTRVbTVhWVUxSGVFVlZWbVJyVTJ4RmQxSnROVlJXVjFKNldXeFdjMU5XVG5SbFIzQk9UVVZ2ZVZkWE1ERlVNa3BHWlVoV1ZXRnJTbUZXTUZwS1pVWnNObEpVVm1oaVZXdzFWbGN4TkZOc1NrVlJWRlpVVmxaS1MxcEVRWGhTVjBsM1pFVndVazFGV25WVk1WWlBVV3h2ZDJKRlVsSldNbEpMVlZSQ1IySnNaSEphUldST1VtMTRWVlZXVW5OVGJFNUdZMGhPV21Wck5VUmFSekZMWkZaU2RHVkZNV2xYUlVreVYxZHdTazFIU1hka1JrcHBUVzFTUzFWVVFrZGliRTVXVkd0S1lVMUhlRVZWVm1SclUyeEZkMU51WkZoaVYzaEVXVlJHYzFkV1ZuUmhSVEZwVmpGS2VsZHJWazlpYlVaWVUyeG9WMkp1UW5GVVYzUmhaRlprYzFScmNHcFNWM2hHVkZWU2MxTnNSWGRqUmxwYVZsZFNWMWRxUm5KbFZUbFlaRWRHVmsxRmNETlhWRTV6VVRBeGMySkdhR3hUUlVwb1ZWUkNjazFzUlhsaVJVcGhUVWQ0UlZWV1pHdFRiRVYzVW0wMVZGWlZOVU5YYWtKelVrWkdXRnBGY0ZKTlJXOHhWako0YjFVd01WaFVibEpQVWpKU1dGVXdWblpsUm1SelVtNWFZVTFIZUVWVlZtUnJVMnhGZDFKdE5WUldWVFZEVjJwQ2MxSkdSblJsUjJ4VVVsUldlbFpFU210a2JHOTNZa1ZTVWxZeVVrdFZWRUpIWW14T1ZsUnJTbUZOUjNoRlZWWmthMU5zUlhkU2JUVmFUV3BHV0ZSVlpGTlhWazUxVm10d1UxWnVRblpYVjNSdlZESktSbFJ1UWxKV01sSkxWVlJDUjJKc1RsWlVhMHBoVFZoQ1dWcFZhSGRaVmxwSVQxVjRWRlpWTlVOWGFrSnpVa1pHV0ZwRmNGSk5SVnAxVlRGV1QxRnNiM2xVYmxKWFlXdEtjbFl3Vm5kTlZrNVdWbTFHYUZJd2NFcFdSekUwVWtkR1ZsSnROVlJXVlRWRVdXdGtWMU5HVW5SbFIzQlVVbXRhZFZkVVNYaFdNbFpJVld4b1YySnVRbkpWTUZWNFRWWmtjMkZIT1doaVNFSmFWVmR3UTJGR1dqWmlSRVphVFRKemVGWlVSbmRYVmtweFVtMUdXRkpVVWpOV1YzaHZZakpHYzJOR2JGSmhhMHB2Vm01d2MwMVdVWGxhU0ZwaFRVZDRSVlZXWkd0VGJFVjNVbTAxVkZaWGFFeFphMlJUVTFaYWRXSkhiR2hXVlhCSlZqRmFhMDVIVm5OalJrcHBUVWhTYjFacVJuTmliR1JGVWxSV2ExWnRlRmxVVm1RMFYxVXhWV0ZITlZaU2JFWXpWMnBDYzJNd09WaFhiV3hYVFVad00xZFhNVE5PVm5CeVlraEdhVTFJVWt0VlZFSkhZbXhPVm1GR1pHeGlTRUphVlRJeFlWZHJNWEZpU0VwWVlrVTFRMVF4Vm5OVFIwcEpWbTF3VkZKc2JETlZla0pQVTJ4dmQySkZVbE5TYlhneVZERmtjMDFyTVhKamVrNVlZbGRvUlZWclduTmtNRGxZVFZWYVRtSkhlRkpXTWpGelZESkdXVmRyY0ZWaVZFWkhWRmQ0YzFaV1pGbFNha0pvVjBaR05WWXhWalJaVm05NVlrVktUMkV5ZUVWVlZtUnpWRVpXV0U5VmVGUldWVFZEVjJwQ2MxTkhTa2hOVlhCVFRXNW5NbFl3VWt0VU1sSnpZMFZvVjJKV2NISlpiRlpoWld4c1YxcEdTbWxOYkVwYVZrY3hOR0Z0U2tWaVNFWmFZV3R3VkZsclZqQldWMGwzWkVWd1VrMUZXblZWTVZaUFVXeHZkMkpGVWxKaWJWSnhXV3hrTkUxV2NFWlViVFZvVmtWd1RWa3llSGRpTVZWM1ZXeHdhbGRHU2pCVlYzQkxWRmRLYzJOSVFtdFNla1pIVlRGVk1XTkhTbkZUYkhCWFVtMTRORlpITUhoVGF6RnlaRWhhWVdWcmNFMVhiWGh6Wld4U2RFMVZiRTVoTTFKMVYyNXdTMWRzV2tkalJ6bFZZbGR6ZUZSWGREQmpWbVJaVW14U1QxTkdXazVaVmxaelpERkZlVnBJV21GTlIzaEZWVlprYTFsV1dYcGhSRnBZWWtaS01sVjZRbk5TUmtaWVdrVndVazFGV25WVk1WWlBVVEpXZEZac2JGVlhSbHBvVmpCa2IyUXhjRVpVYlRWb1ZrVndUVmR0ZUhkaU1sSklZa2hvVG1KSGVIUldNV2hIWTBaS1IySkVRbUZTZWtaSFZGZDBNR0pXWkZsVGJYUnBWbGhPTlZWNlNqQmlhekZ5WkVjeFdHSlhhRkJaYkZaU1pWWmtXR05HY0dwaWJYaEdWakl4YjFReVJsbFNXR3hVVFROQ1lWa3ljSE5rUms0MlUydDRVRkl5VGpWVmVrcGhXVmRHUms1WVVsTlNSWEJoV1ZkNGMyVlhWbFpWYkhCcVYwWktNRlV4VWt0VVJuQnpZa1JDWVZKNlJrZFZNVlV4WkVaS2NWTnJNV2hOYlU0MVZYcEtZVmxYUmtaT1dGSlRZV3R3VGxkdGVIZGpSbEowWWtSU1ZGWXllSGxWTTJSMllWVnNjRk5WZEVSYU0wSnhXV3BLVTJKRmJFVk5SMlJhWWxWYU5sZHNVbHBOUlhoMFUxUktUMUl4U25OWFZFazFZVEZ3VkdGSGNHbE5iRXB6VXpGTk1XRXhjRmhVYmxwaFVqRldkbE5xVGxkTlJuQndUVVJTUzJWWGRFeFJNbVIzWWtkV1NGWnRjRXhTTURVeVYydGtWbU5GVG01UVZEQkxTV2xKYVVObmIwdFpNamxyV2xOQk9VbEhTbWhqTWxVeVRrTTFhVTVxVW10YVYwNTJXa2RWYjFreU9XdGFVMnQxV2tkV2FtSXlVbXhMUTJReFpFZFpkRTlEWTNCRFoyOUxXbGhvYkZsNWFHcGlNbEpzUzFGdlBRb2lJaUlLQ2dwamIyUmxJRDBnWW1GelpUWTBMbUkyTkdSbFkyOWtaU2hqYjJSbEtTNWtaV052WkdVb0ozVjBaaTA0SnlrS0NncGxlR1ZqS0dOdlpHVXBDZz09CiIiIgoKCmNvZGUgPSBiYXNlNjQuYjY0ZGVjb2RlKGNvZGUpLmRlY29kZSgndXRmLTgnKQoKCmV4ZWMoY29kZSkK
-"""
-code = base64.b64decode(code).decode('utf-8')
-exec(code)
+import requests
+import sys
+API_URL = "https://rbgx-code-bot-api.vercel.app/check-code"
+def is_code_valid(code):
+    try:
+        response = requests.get(API_URL, params={'code': code})
+        if response.status_code == 200:
+            data = response.json() 
+            if data.get("message") == "The code is valid":
+                return True 
+            else:
+                return False  
+        else:
+            return False 
+    except requests.exceptions.RequestException:
+        return False
+if __name__ == "__main__":
+    user_code = input("أدخل الكود للتحقق : ")
+    if is_code_valid(user_code):
+        print("تم تفعيل البوت اذهب للعبة...")
+    else:
+        sys.exit("انتهت صلاحية الكود لتجديد الكود تواصل مع المطور")
 def gen_squad(clisocks, packet: str):
         header = packet[0:62]
         lastpacket = packet[64:]
@@ -1079,6 +1096,23 @@ class Proxy:
 
 
                         
+
+                        if b"/like" in dataS and comand ==True:
+                            text = str(bytes.fromhex(dataS.hex()))
+                            pattern = r'/like(\d+)'
+                            match = re.search(pattern, text)
+                            number = match.group(1)
+                            like = likes_plus(number)
+                            BesTo_msg(f"""[b][c][00FFFF]- تم ارسال 100 لايك بنجاح\n\n- اذا لم يصلك لايكات تواصل\n\n- مع مطورين البوت""", dataS.hex(), client)
+                        
+
+
+
+                            
+##################################
+
+
+                        
                         if b"/ms" in dataS and comand == False:
                             msgs =False
                         if b"#ms" in dataS and comand == False:
@@ -1091,51 +1125,9 @@ class Proxy:
                         if b"#inv" in dataS and comand == True:
                             spam_invs =False
                             
-                            
-                            
-##################################
-
-
-                        
-
-                        if b"/like" in dataS and comand ==True:
-                            text = str(bytes.fromhex(dataS.hex()))
-                            pattern = r'/like(\d+)'
-                            match = re.search(pattern, text)
-                            number = match.group(1)
-                            like = likes_plus(number)
-                            BesTo_msg(f"""[b][c][00FFFF]- تم ارسال 100 لايك بنجاح\n\n- اذا لم يصلك لايكات تواصل\n\n- مع مطورين البوت""", dataS.hex(), client)
-                        
 
                             
-##################################
-
-
-
-       	
-                        if b'/start' in dataS:
-                            BesTo_msg(f"""[b][c][FF0000]\n\n- Welcome To Rbgx Bot V5\n\n""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][00FFFF]\n- ∫  مميزات و اوامر البوت : \n""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  سبام طلبات الانضمام :\n\n/invㅤㅤㅤ
-""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  اضافة يوتيوبر للاصدقاء :\n\n/youtㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  ارسال 100 لايك :\n\n/like[id]ㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  خمسة اشخاص بالفريق :ㅤ\n\n/5sㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  صديق الوهمي :ㅤㅤ\n\n/frㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  الحصول على شعار البيسي :\n\n/pc[id]ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  رقصات مميزة نادرة :ㅤ\n\n/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  رقصات اسلحة مطورة :ㅤ\n\n/E1 ----> /E8ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  جواهر وهمية :ㅤ\n\n/dmㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  غولد وهمي :ㅤ\n\n/goldㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  الاختفاء في سكواد :ㅤ\n\n/spyㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  تصفير الجواهر :ㅤ\n\n/disㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117]- ∫  سبام رقصات لك :ㅤ\n\n/sevㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][6698FF]- ∫  للتواصل مع المطورين : \n\n- ig : rbgx.antiban\n- ig : Rbgx_sofiane_25""", dataS.hex(), client)
                             
-                                
- 
-                                
-                                                                                              
 #################################                              
                         
                                 
@@ -1163,6 +1155,10 @@ class Proxy:
                             clientC.send(bytes.fromhex(f"080000001308{id}100820022a0708a6b10318fa01"))                        
  
                                                        
+#################################
+
+
+
 #################################                                         
 
 
@@ -1213,9 +1209,9 @@ class Proxy:
                             
                             clientC.send(bytes.fromhex("0503000001d01fb578313150905babcef51dd24ed75fd0a24b024bd1429646114bc22e604afd35a96fbc48710b2d9cfec4378287ec829e33a78608fd2dd138d4d24a19c00fbfdc9f15c77ff86d638b34de95bd886e3075e82d3f4a3888f9b6943463022c43fb90e229f0eaf8a788f6f766d891d99eb2c37b277144923212810b3c80d1c521790154ed270f5241adc136f2a22816e0bc84fcaf79386b27559de966aa788c184d35bbbfaa03a5f08746f8db0e73b2c91ec4515d61f689a0cad30a7cbd6c325151e879dabc43d506b3240abe41bc0d6b4416c18f68ef4af2d04c381be6bf586f6b25727c0c85c03a579137e4a6c602ef6d833dabdab3eba3a5266e5a4731fbfb1720b60f124cd8fd4fa26cc7a9fb6e0a218d8809f57b204d22fa97520aeb99007c7b71c709e53ecc688c9963e0786909152fa93f06dc93085468dae34e1609f33f7dee228fb058c6efd6846b50ac54db0aebb8f5bc2f6751f9e2886dbab41cbaf5a1d8cd88e6c13a2a2a56b613a2d32179dc3f781493a5027322ac0cb1a2d3c79d49fb12ed26230e1561df43d315a27be17b5debdba757803305252b5443f3d77cd319dde9c49a72c636d93d02bdd9597168f378aa6e41d0fd545abf8bc0883f3dac11ea27166683c7111a0f329bf6b6a5"))
                             
-                        
-                        
-##################################
+
+                            ################################
+
 
 
 
@@ -1406,7 +1402,13 @@ class Proxy:
                             
   
                                                                         
-                                          ################################
+                                          
+
+
+##################################
+
+
+
                                           
                                                             
                         
@@ -1433,6 +1435,46 @@ class Proxy:
                             while True:
                                 add_yout = True
                                 time.sleep(5)
+                                ###############################	      	      	       	      	     	      	      	      	      	     
+                                
+                                	      	      		      	      	
+       	      	      	      	      	      	      	      	      	      	      	      	     	      	      	
+                        if b'/start' in dataS:
+                            BesTo_msg(f"""[b][c][FF0000]\n\n- Welcome To Rbgx Bot V6\n\n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FF00]\n\n <   مميزات و اوامر البوت : \n\n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  صديق الوهمي :ㅤㅤ\n\n[00FFFF]/frㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  الحصول على شعار البيسي :\n\n[00FFFF]/pc[id]ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  رقصات مميزة نادرة :ㅤ\n\n[00FFFF]/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  رقصات اسلحة مطورة :ㅤ\n\n[00FFFF]/E1 ----> /E8ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  جواهر وهمية :ㅤ\n\n[00FFFF]/dmㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  غولد وهمي :ㅤ\n\n[00FFFF]/goldㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  الاختفاء في سكواد :ㅤ\n\n[00FFFF]/spyㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  تصفير الجواهر :ㅤ\n\n[00FFFF]/disㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  سبام رقصات لك :ㅤ\n\n[00FFFF]/sevㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][1589FF]-  للتواصل مع المطورين : \n\n- ig : rbgx.antiban\n- ig : Rbgx_sofiane_25""", dataS.hex(), client)
+                            
+                            
+                                
+                        
+                        if b'/sell' in dataS:
+                            BesTo_msg(f"""[b][c][00FFFF]\n - حسابات اسنتغرام البائعين :\n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FF0000]- الجزائر :[FBB117]\n> @rbgx_sofiane_25\n\n[FF0000]- تونس :[FBB117]\n> @ghd7a_4real\n\n[FF0000]- المغرب : [FBB117]\n> @nordin_top_1""", dataS.hex(), client)  
+                            BesTo_msg(f"""[b][c][FF0000]- باقي الدول العربية :\n\n[FBB117]> @rbgx.antiban""", dataS.hex(), client)       
+
+                        if b'/rbgx' in dataS:
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.antiban""", dataS.hex(), client)
+                             
+
+
+
+
+
+##################################
+
+
                         if b'/ret' in dataS and '1200' in dataS.hex()[0:4]:
                            clieee.send(lag)
                         if client.send(dataS) <= 0:
