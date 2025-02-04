@@ -76,17 +76,7 @@ def gen_msg4(packet, content):
         NewMsgPacket = header + NewpaketLength + packetBody + NewPyloadLength + pyloadbody2 + NewTextLength + content + pyloadTile
         return str(NewMsgPacket)
 
-def color():
-    # List of top 50 colors without #
-    top_colors = ['[ff4500]', '[ffd700]', '[32cd32]', '[87ceeb]', '[9370db]', '[ff69b4]', '[8a2be2]', '[00bfff]', '[1e90ff]', '[20b2aa]', 
-'[00fa9a]', '[008000]', '[ffff00]', '[ff8c00]', '[dc143c]', '[ff6347]', '[ffa07a]', '[ffdab9]', '[cd853f]', '[d2691e]', 
-'[bc8f8f]', '[f0e68c]', '[556b2f]', '[808000]', '[4682b4]', '[6a5acd]', '[7b68ee]', '[8b4513]', '[c71585]', '[4b0082]', 
-'[b22222]', '[228b22]', '[8b008b]', '[483d8b]', '[556b2f]', '[800000]', '[008080]', '[000080]', '[800080]', '[808080]', 
-'[a9a9a9]', '[d3d3d3]', '[f0f0f0]']
-    # Select a random index using secrets
-    random_index = secrets.randbelow(len(top_colors))
-    random_color = top_colors[random_index]
-    return random_color
+
     
                   
 import requests
