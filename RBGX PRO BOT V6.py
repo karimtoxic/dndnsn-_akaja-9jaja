@@ -1435,6 +1435,7 @@ class Proxy:
                             BesTo_msg(f"""[b][c][FFFF00] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FFFF00] <  زيادة 100 لايك :ㅤ\n\n[00FFFF]/like[id]ㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  صديق الوهمي :ㅤㅤ\n\n[00FFFF]/frㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  الحصول على شعار البيسي :\n\n[00FFFF]/pc[id]ㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  رقصات مميزة نادرة :ㅤ\n\n[00FFFF]/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
@@ -1450,7 +1451,7 @@ class Proxy:
                                 
                         
                         if b'/sell' in dataS:
-                            BesTo_msg(f"""[b][c][00FFFF]\n - حسابات اسنتغرام البائعين :\n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]\n - حسابات انستغرام البائعين :\n""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FF0000]- الجزائر :[FBB117]\n> @rbgx_sofiane_25\n\n[FF0000]- تونس :[FBB117]\n> @ghd7a_4real\n\n[FF0000]- المغرب : [FBB117]\n> @nordin_top_1""", dataS.hex(), client)  
                             BesTo_msg(f"""[b][c][FF0000]- باقي الدول العربية :\n\n[FBB117]> @rbgx.antiban""", dataS.hex(), client)       
 
