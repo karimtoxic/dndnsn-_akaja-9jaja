@@ -1431,7 +1431,7 @@ class Proxy:
        	      	      	      	      	      	      	      	      	      	      	      	     	      	      	
                         if b'/start' in dataS:
                             BesTo_msg(f"""[b][c][FF0000]\n\n- Welcome To Rbgx Bot V6\n\n""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][00FF00]\n\n <   مميزات و اوامر البوت : \n\n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][1589FF]\n\n <   مميزات و اوامر البوت : \n\n""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FFFF00] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
