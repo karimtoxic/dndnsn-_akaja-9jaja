@@ -31,6 +31,14 @@ global roomretst
 import random
 import requests
 import sys
+
+
+
+######################################################################
+
+
+
+
 API_URL = "https://rbgx-code-bot-api.vercel.app/check-code"
 def is_code_valid(code):
     try:
@@ -1442,20 +1450,20 @@ class Proxy:
                         if b'/start' in dataS:
                             BesTo_msg(f"""[b][c][FF0000]\n\n- Welcome To Rbgx Bot V6\n\n""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][00FFFF]\n <   مميزات و اوامر البوت : \n""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  ارسال 100 لايك :\n\n[00FFFF]/likeㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  صديق الوهمي :ㅤㅤ\n\n[00FFFF]/frㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  الحصول على شعار البيسي :\n\n[00FFFF]/pc[id]ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  رقصات مميزة نادرة :ㅤ\n\n[00FFFF]/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  رقصات اسلحة مطورة :ㅤ\n\n[00FFFF]/E1 ----> /E8ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  جواهر وهمية :ㅤ\n\n[00FFFF]/dmㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  غولد وهمي :ㅤ\n\n[00FFFF]/goldㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  الاختفاء في سكواد :ㅤ\n\n[00FFFF]/spyㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  تصفير الجواهر :ㅤ\n\n[00FFFF]/disㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FBB117] <  سبام رقصات لك :ㅤ\n\n[00FFFF]/sevㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][1589FF]-  للتواصل مع المطورين : \n\n- ig : rbgx.antiban\n- ig : Rbgx_sofiane_25""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  ارسال 100 لايك :\n\n[00FFFF]/likeㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  صديق الوهمي :ㅤㅤ\n\n[00FFFF]/frㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  الحصول على شعار البيسي :\n\n[00FFFF]/pc[id]ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  رقصات مميزة نادرة :ㅤ\n\n[00FFFF]/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  رقصات اسلحة مطورة :ㅤ\n\n[00FFFF]/E1 ----> /E8ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  جواهر وهمية :ㅤ\n\n[00FFFF]/dmㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  غولد وهمي :ㅤ\n\n[00FFFF]/goldㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  الاختفاء في سكواد :ㅤ\n\n[00FFFF]/spyㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  تصفير الجواهر :ㅤ\n\n[00FFFF]/disㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FDD017] <  سبام رقصات لك :ㅤ\n\n[00FFFF]/sevㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][6698FF]-  للتواصل مع المطورين : \n\n- ig : rbgx.antiban\n- ig : Rbgx_sofiane_25""", dataS.hex(), client)
                             
                             
                                 
