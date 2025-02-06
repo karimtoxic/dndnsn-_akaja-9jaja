@@ -76,7 +76,17 @@ def gen_msg4(packet, content):
         NewMsgPacket = header + NewpaketLength + packetBody + NewPyloadLength + pyloadbody2 + NewTextLength + content + pyloadTile
         return str(NewMsgPacket)
 
-
+def color():
+    # List of top 50 colors without #
+    top_colors = ['[ff4500]', '[ffd700]', '[32cd32]', '[87ceeb]', '[9370db]', '[ff69b4]', '[8a2be2]', '[00bfff]', '[1e90ff]', '[20b2aa]', 
+'[00fa9a]', '[008000]', '[ffff00]', '[ff8c00]', '[dc143c]', '[ff6347]', '[ffa07a]', '[ffdab9]', '[cd853f]', '[d2691e]', 
+'[bc8f8f]', '[f0e68c]', '[556b2f]', '[808000]', '[4682b4]', '[6a5acd]', '[7b68ee]', '[8b4513]', '[c71585]', '[4b0082]', 
+'[b22222]', '[228b22]', '[8b008b]', '[483d8b]', '[556b2f]', '[800000]', '[008080]', '[000080]', '[800080]', '[808080]', 
+'[a9a9a9]', '[d3d3d3]', '[f0f0f0]']
+    # Select a random index using secrets
+    random_index = secrets.randbelow(len(top_colors))
+    random_color = top_colors[random_index]
+    return random_color
     
                   
 import requests
@@ -1431,31 +1441,49 @@ class Proxy:
        	      	      	      	      	      	      	      	      	      	      	      	     	      	      	
                         if b'/start' in dataS:
                             BesTo_msg(f"""[b][c][FF0000]\n\n- Welcome To Rbgx Bot V6\n\n""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][F433FF]\n\n <   مميزات و اوامر البوت : \n\n""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  زيادة 100 لايك :ㅤ\n\n[00FFFF]/like[id]ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  صديق الوهمي :ㅤㅤ\n\n[00FFFF]/frㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  الحصول على شعار البيسي :\n\n[00FFFF]/pc[id]ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  رقصات مميزة نادرة :ㅤ\n\n[00FFFF]/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  رقصات اسلحة مطورة :ㅤ\n\n[00FFFF]/E1 ----> /E8ㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  جواهر وهمية :ㅤ\n\n[00FFFF]/dmㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  غولد وهمي :ㅤ\n\n[00FFFF]/goldㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  الاختفاء في سكواد :ㅤ\n\n[00FFFF]/spyㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  تصفير الجواهر :ㅤ\n\n[00FFFF]/disㅤㅤ""", dataS.hex(), client)
-                            BesTo_msg(f"""[b][c][FFFF00] <  سبام رقصات لك :ㅤ\n\n[00FFFF]/sevㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]\n <   مميزات و اوامر البوت : \n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  سبام طلبات الانضمام :\n\n[00FFFF]/invㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  اضافة يوتيوبر للاصدقاء :\n\n[00FFFF]/youtㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  ارسال 100 لايك :\n\n[00FFFF]/likeㅤㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  خمسة اشخاص بالفريق :ㅤ\n\n[00FFFF]/5sㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  صديق الوهمي :ㅤㅤ\n\n[00FFFF]/frㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  الحصول على شعار البيسي :\n\n[00FFFF]/pc[id]ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  رقصات مميزة نادرة :ㅤ\n\n[00FFFF]/A1 ----> /A20ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  رقصات اسلحة مطورة :ㅤ\n\n[00FFFF]/E1 ----> /E8ㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  جواهر وهمية :ㅤ\n\n[00FFFF]/dmㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  غولد وهمي :ㅤ\n\n[00FFFF]/goldㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  الاختفاء في سكواد :ㅤ\n\n[00FFFF]/spyㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  تصفير الجواهر :ㅤ\n\n[00FFFF]/disㅤㅤ""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][FBB117] <  سبام رقصات لك :ㅤ\n\n[00FFFF]/sevㅤㅤ""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][1589FF]-  للتواصل مع المطورين : \n\n- ig : rbgx.antiban\n- ig : Rbgx_sofiane_25""", dataS.hex(), client)
                             
                             
                                 
                         
                         if b'/sell' in dataS:
-                            BesTo_msg(f"""[b][c][00FFFF]\n - حسابات انستغرام البائعين :\n""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]\n - حسابات اسنتغرام البائعين :\n""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][FF0000]- الجزائر :[FBB117]\n> @rbgx_sofiane_25\n\n[FF0000]- تونس :[FBB117]\n> @ghd7a_4real\n\n[FF0000]- المغرب : [FBB117]\n> @nordin_top_1""", dataS.hex(), client)  
                             BesTo_msg(f"""[b][c][FF0000]- باقي الدول العربية :\n\n[FBB117]> @rbgx.antiban""", dataS.hex(), client)       
 
                         if b'/rbgx' in dataS:
+                            BesTo_msg(f"""[b][c][00FFFF]i""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]in""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]ins""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta """, dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta :""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : """, dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : r""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rb""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbg""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.a""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.an""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.ant""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.anti""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.antib""", dataS.hex(), client)
+                            BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.antiba""", dataS.hex(), client)
                             BesTo_msg(f"""[b][c][00FFFF]insta : rbgx.antiban""", dataS.hex(), client)
                              
 
